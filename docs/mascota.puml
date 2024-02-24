@@ -1,0 +1,42 @@
+@startuml
+class Mascota 
+class Alimento
+class Salud 
+class Pelota
+class Emocion
+class Felicidad
+class Triste
+class Cama
+class Ojo
+class Vida
+class Tiempo
+class Voca
+
+Mascota o-- Alimento
+Mascota *-- Salud
+Alimento --|> Salud
+Mascota o-- Pelota
+Felicidad --|> Emocion
+Triste --|> Emocion
+Mascota o-- Cama
+Felicidad *-- Pelota
+Mascota *-- Ojo
+Mascota *-- Vida
+Vida <|-- Alimento
+Tiempo --|> Vida
+Mascota *-- Voca
+Voca o-- Alimento
+
+
+
+
+
+
+
+
+
+
+
+
+
+@enduml
