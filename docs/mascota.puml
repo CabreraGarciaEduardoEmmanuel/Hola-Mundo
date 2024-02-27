@@ -1,8 +1,17 @@
-@startuml
-class Mascota 
+ @startuml
+class Mascota {
+    - salud: int
+    + Comer()
+    + Jugar()
+    + Vestir()
+}
 class Alimento
 class Salud 
-class Pelota
+class Pelota{
+    - posicion: Vector 2D
+    + Rebotar
+    +
+}
 class Emocion
 class Felicidad
 class Triste
@@ -10,33 +19,47 @@ class Cama
 class Ojo
 class Vida
 class Tiempo
-class Voca
+class Voca {
+    - posicion: Vector2D
+    + Comer()
+    + Hablar()
+}
+class Ropa
+class Dinero
+class Cuarto
+class Diversion
+class Casa
+class Accesorio
+class Lente
+class Cadena
+class Cabello
 
-Mascota o-- Alimento
+Mascota "1" *-- "0,2" Cabello
+Cadena --> Accesorio
+Lente --|> Accesorio
+Mascota "1" o-- "0,*" Accesorio 
+Mascota o-- Casa
 Mascota *-- Salud
-Alimento --|> Salud
-Mascota o-- Pelota
+Casa *-- Cuarto
+Diversion o-- "1,*" Pelota
+Diversion --|> Emocion
+Mascota "1" o-- "1" Cuarto 
+Dinero  --|>  Felicidad
+Mascota "1" o-- "0,*" Dinero
+Mascota o-- Ropa
+Mascota "1" o-- "*" Alimento
+Mascota *-- Salud
+Alimento  --|> Salud
+Mascota o-- "0,1" Pelota
 Felicidad --|> Emocion
 Triste --|> Emocion
 Mascota o-- Cama
 Felicidad *-- Pelota
 Mascota *-- Ojo
-Mascota *-- Vida
+Mascota "1" *-- "1" Vida
 Vida <|-- Alimento
 Tiempo --|> Vida
-Mascota *-- Voca
-Voca o-- Alimento
-
-
-
-
-
-
-
-
-
-
-
-
+Mascota "1" *-- "1" Voca
+Voca "1" o-- "*" Alimento
 
 @enduml
